@@ -1,14 +1,11 @@
-﻿using System;
+using System;
+using System.Text.RegularExpressions;
 
 public class FirstNameValidator
 {
-    public  bool ValidateFirstName(string firstName)
+    public bool ValidateFirstName(string firstName)
     {
-        if (string.IsNullOrEmpty(firstName) || firstName.Length < 3 || !char.IsUpper(firstName[0]))
-        {
-            return false;
-        }
-        return true;
+        string pattern = @"^[A-Z][a-zA-Z]{2,}$";
+        return Regex.IsMatch(firstName, pattern);
     }
-
 }
