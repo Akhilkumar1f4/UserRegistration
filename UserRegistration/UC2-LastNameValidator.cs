@@ -1,14 +1,8 @@
-﻿using System;
-
 public class LastNameValidator
 {
-    public  bool ValidateLastName(string lastName)
+    public bool ValidateLastName(string lastName)
     {
-        if (string.IsNullOrEmpty(lastName) || lastName.Length < 3 || !char.IsUpper(lastName[0]))
-        {
-            return false;
-        }
-        return true;
+        string pattern = @"^[A-Z][a-zA-Z]{2,}$";
+        return Regex.IsMatch(lastName, pattern);
     }
-
 }
